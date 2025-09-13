@@ -21,10 +21,10 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore
-        run: dotnet restore application/learningapp/learningapp.sln
+        run: dotnet restore application/learningapp.sln
 
       - name: Build
-        run: dotnet build application/learningapp/learningapp.sln --configuration Release --no-restore
+        run: dotnet build application/learningapp.sln --configuration Release --no-restore
 
       - name: Publish
         run: dotnet publish application/learningapp/learningapp.csproj --configuration Release --no-build --output ./publish
@@ -63,3 +63,4 @@ jobs:
           app-name: 'ozandemo'
           slot-name: 'Production'
           package: ./publish
+
