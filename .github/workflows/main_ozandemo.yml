@@ -21,13 +21,13 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore
-        run: dotnet restore application/learningapp.sln
+        run: dotnet restore learningapp.sln
 
       - name: Build
-        run: dotnet build application/learningapp.sln --configuration Release --no-restore
+        run: dotnet build learningapp.sln --configuration Release --no-restore
 
       - name: Publish
-        run: dotnet publish application/learningapp/learningapp.csproj --configuration Release --no-build --output ./publish
+        run: dotnet publish learningapp/learningapp.csproj --configuration Release --no-build --output ./publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -63,4 +63,3 @@ jobs:
           app-name: 'ozandemo'
           slot-name: 'Production'
           package: ./publish
-
